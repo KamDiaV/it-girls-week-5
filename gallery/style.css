@@ -1,0 +1,169 @@
+/* Основные стили */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  overflow-x: hidden;
+}
+
+/* Шапка и навигация */
+header {
+  background-color: #6b5b95;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Контейнер для всего содержимого */
+.container {
+  max-width: 1200px; 
+  width: 100%; 
+  margin: 0 auto; 
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  align-items: stretch; /* Растягиваем все элементы по высоте общего контейнера */
+}
+
+/* Большое изображение */
+.large {
+  flex: 2; /* Занимает две части из трёх контейнера */
+  justify-content: center; /* Центрируем изображение по горизонтали */
+  position: relative; /* Для применения псевдоэлементов */
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Центрируем изображение по вертикали */
+  height: 100%; /* Занимает всю высоту родительского элемента */
+}
+
+.large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.3s ease; 
+}
+
+/* Малые изображения */
+.small-images {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 16px;
+  flex: 1; /* Занимает одну часть из трёх контейнера */
+  align-content: stretch; /* Растягиваем содержимое по высоте */
+}
+
+.small {
+  flex: 1 1 calc(50% - 16px); /* Две колонки с учетом отступа */
+  box-sizing: border-box;
+  height: calc(33.33% - 16px); /* Высота каждой картинки делится на три строки с учетом отступа */
+  position: relative; /* Для применения псевдоэлементов */
+  overflow: hidden;
+}
+
+.small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.3s ease; /* Эффект при наведении */
+}
+
+.image-container img {
+  width: 100%; /* Изображение будет занимать всю ширину контейнера */
+  height: auto; /* Высота автоматически подстраивается, сохраняя пропорции */
+  max-width: 100%; /* Не превышает размеры контейнера по ширине */
+  max-height: 100%; /* Не превышает размеры контейнера по высоте */
+  object-fit: contain; /* Изображение будет масштабироваться внутри контейнера */
+  transition: transform 0.3s ease;
+}
+
+/* Эффект при наведении */
+.image-container:hover img {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Подсказка (появляется при наведении на изображение) */
+.image-container::before {
+  content: attr(alt);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+/* Пагинатор */
+.paginator {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paginator ul {
+  list-style: none; 
+  padding: 0;
+  display: flex;
+  justify-content: center; 
+  gap: 16px; 
+}
+
+.paginator li {
+  display: inline;
+}
+
+.paginator a {
+  text-decoration: none; 
+  color: #6b5b95; 
+  font-weight: bold;
+  padding: 8px 12px; 
+  border: 1px solid #6b5b95; 
+  border-radius: 4px; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.paginator a:hover {
+  background-color: #6b5b95; 
+  color: #ffffff; 
+}
+
+
+/* Подвал */
+footer {
+  background-color: #6b5b95;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
